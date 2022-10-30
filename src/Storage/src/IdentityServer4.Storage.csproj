@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
 
-    <PackageId>IdentityServer4.Storage</PackageId>
+    <PackageId>Redb.IdentityServer4.Storage</PackageId>
     <Description>Storage interfaces and models for IdentityServer4</Description>
-    <Authors>Brock Allen;Dominick Baier</Authors>
+    <Authors>Brock Allen;Dominick Baier;Yury Skaletskiy</Authors>
 
     <PackageTags>OAuth2;OAuth 2.0;OpenID Connect;Security;Identity;IdentityServer</PackageTags>
     <PackageIcon>icon.jpg</PackageIcon>
@@ -22,6 +22,8 @@
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <AssemblyName>Redb.IdentityServer4.Storage</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -35,6 +37,7 @@
 
   <ItemGroup>
     <PackageReference Include="IdentityModel" />
+    <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
   </ItemGroup>
 

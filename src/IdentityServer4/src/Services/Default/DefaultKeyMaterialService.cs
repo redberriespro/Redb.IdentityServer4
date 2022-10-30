@@ -38,7 +38,8 @@ namespace IdentityServer4.Services
         {
             if (_signingCredentialStores.Any())
             {
-                if (allowedAlgorithms.IsNullOrEmpty())
+                
+                if (CollectionUtilities.IsNullOrEmpty(allowedAlgorithms))
                 {
                     return await _signingCredentialStores.First().GetSigningCredentialsAsync();
                 }
