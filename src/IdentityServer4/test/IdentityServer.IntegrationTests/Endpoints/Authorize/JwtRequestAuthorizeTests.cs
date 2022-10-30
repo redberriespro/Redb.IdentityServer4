@@ -524,6 +524,7 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
             var response = await _mockPipeline.BrowserClient.GetAsync(url);
 
             _mockPipeline.LoginRequest.Should().NotBeNull();
+            var value = _mockPipeline.LoginRequest.Parameters["someObj"];
 
             _mockPipeline.LoginRequest.Parameters["someObj"].Should().NotBeNull();
             var someObj2 = JsonConvert.DeserializeObject(_mockPipeline.LoginRequest.Parameters["someObj"], someObj.GetType());

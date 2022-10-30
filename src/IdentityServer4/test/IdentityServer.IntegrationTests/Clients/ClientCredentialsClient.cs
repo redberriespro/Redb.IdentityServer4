@@ -3,10 +3,12 @@
 
 
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityModel;
@@ -28,6 +30,7 @@ namespace IdentityServer.IntegrationTests.Clients
 
         public ClientCredentialsClient()
         {
+            
             var builder = new WebHostBuilder()
                 .UseStartup<Startup>();
             var server = new TestServer(builder);
@@ -137,17 +140,16 @@ namespace IdentityServer.IntegrationTests.Clients
             var payload = GetPayload(response);
 
             payload.Count().Should().Be(9);
-            payload.Should().Contain("iss", "https://idsvr4");
-            payload.Should().Contain("client_id", "client.cnf");
+            payload["iss"].Should().Be("https://idsvr4");
+            payload["aud"].Should().Be("api");
+            payload["client_id"].Should().Be("client.cnf");
             payload.Keys.Should().Contain("jti");
             payload.Keys.Should().Contain("iat");
 
-            payload["aud"].Should().Be("api");
-
-            var scopes = payload["scope"] as JArray;
+            var scopes = ((JArray)payload["scope"]).ToList();
             scopes.First().ToString().Should().Be("api1");
 
-            var cnf = payload["cnf"] as JObject;
+            var cnf = (JObject)payload["cnf"];
             cnf["x5t#S256"].ToString().Should().Be("foo");
         }
 

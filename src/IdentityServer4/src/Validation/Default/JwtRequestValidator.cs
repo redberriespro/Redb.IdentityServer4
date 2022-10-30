@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Configuration;
@@ -15,7 +16,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace IdentityServer4.Validation
 {
@@ -199,18 +199,24 @@ namespace IdentityServer4.Validation
                 if (!Constants.Filters.JwtRequestClaimTypesFilter.Contains(key))
                 {
                     var value = token.Payload[key];
-
+                    var vType = value.GetType();
                     switch (value)
                     {
                         case string s:
                             payload.Add(key, s);
                             break;
-                        case JObject jobj:
-                            payload.Add(key, jobj.ToString(Formatting.None));
+                        
+                        default:
+                            payload.Add(key, value.ToString());
                             break;
-                        case JArray jarr:
-                            payload.Add(key, jarr.ToString(Formatting.None));
-                            break;
+                        
+                        // case Newtonsoft.Json.Linq.JObject jobj:
+                        //     payload.Add(key, jobj.ToString(Formatting.None));
+                        //     break;
+                        //
+                        // case Newtonsoft.Json.Linq.JArray jarr:
+                        //     payload.Add(key, jarr.ToString(Formatting.None));
+                        //     break;
                     }
                 }
             }
