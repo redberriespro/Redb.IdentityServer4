@@ -1,6 +1,7 @@
 ### .NET 6 Migration Status
 - DONE build.sh flow succeeded under NET6
 - DONE Core components passes unit tests
+- DONE Publish PRERELEASE to nuget 
 - TODO CI set up
 - TODO Check out sample projects are still operable
 - TODO Look at the .NET 7 for forther support
@@ -11,6 +12,8 @@ We'll continue following the original Apache License 2.0 terms in order to keep 
 
 The project is supported by Redberries.pro team, so packages have new "Redb." prefix. Please use packages **Redb.IdentityServer**, 
 **Redb.IdentityServer.Storage** and so on when using IS4 in .NET 6 projects.
+
+_*** NOTE *** at the moment, Redb.IdentityServer4 has been published to NuGet as PRERELEASE package. So, please make sure you set the checkbox :)_
 
 Contact @ redberries: Yury Skaletskiy, yury@redberries.pro
 
