@@ -101,6 +101,7 @@ namespace IdentityServer4.AspNetIdentity
         {
             var principal = await GetUserClaimsAsync(user);
             context.AddRequestedClaims(principal.Claims);
+            
         }
 
         /// <summary>
