@@ -1,7 +1,18 @@
-# Important update
-This organization is not maintained anymore besides critical security bugfixes (if feasible). This organization will be archived when .NET Core 3.1 end of support is reached (3rd Dec 2022). All new development is happening in the new [Duende Software](https://github.com/duendesoftware) organization. 
+### .NET 6 Migration Status
+- DONE build.sh flow succeeded under NET6
+- DONE Core components passes unit tests
+- TODO CI set up
+- TODO Check out sample projects are still operable
+- TODO Look at the .NET 7 for forther support
 
-The new [Duende IdentityServer](https://duendesoftware.com/products/identityserver) comes with a commercial license but is [free](https://blog.duendesoftware.com/posts/20220111_fair_trade/) for dev/testing/personal projects and companies or individuals making less than 1M USD gross annnual revenue. Please [get in touch with us](https://duendesoftware.com/contact) if you have any question.
+# About Redb.IdentityServer4 .NET 6 fork
+This fork is our attempt to maintain IdentityServer4 for .NET 6 (and hopefully, modern versions of .Net in the future).
+We'll continue following the original Apache License 2.0 terms in order to keep the project truly open source.
+
+The project is supported by Redberries.pro team, so packages have new "Redb." prefix. Please use packages **Redb.IdentityServer**, 
+**Redb.IdentityServer.Storage** and so on when using IS4 in .NET 6 projects.
+
+Contact @ redberries: Yury Skaletskiy, yury@redberries.pro
 
 ## About IdentityServer4
 [<img align="right" width="100px" src="https://dotnetfoundation.org/img/logo_big.svg" />](https://dotnetfoundation.org/projects?searchquery=IdentityServer&type=project)
@@ -18,7 +29,7 @@ Active development happens on the main branch. This always contains the latest v
 
 ## How to build
 
-* [Install](https://www.microsoft.com/net/download/core#/current) the latest .NET Core 3.1 SDK
+* [Install](https://www.microsoft.com/net/download/core#/current) the latest .NET 6 SDK
 * Install Git
 * Clone this repo
 * Run `build.ps1` or `build.sh` in the root of the cloned repo
