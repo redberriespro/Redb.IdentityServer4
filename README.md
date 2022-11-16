@@ -4,7 +4,7 @@
 - DONE Publish PRERELEASE to nuget 
 - TODO CI set up
 - TODO Check out sample projects are still operable
-- TODO Look at the .NET 7 for forther support
+- TODO Look at the .NET 7 for further support
 
 # About Redb.IdentityServer4 .NET 6 fork
 This fork is our attempt to maintain IdentityServer4 for .NET 6 (and hopefully, modern versions of .Net in the future).
